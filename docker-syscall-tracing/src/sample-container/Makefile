@@ -8,4 +8,4 @@ clean-context:
 build:
 	$(MAKE) build-context && \
 	cd build && \
-	docker build --no-cache -t sample-container:latest .	
+	docker build --no-cache --network=host -t sample-container:latest .	

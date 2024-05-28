@@ -13,8 +13,10 @@ func getDBConnection() *sql.DB {
 	user := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
 	dbname := os.Getenv("DB_NAME")
+	dbhost := os.Getenv("DB_HOST")
+	dbport := os.Getenv("DB_PORT")
 
-	connStr := fmt.Sprintf("%s:%s@tcp(db:3306)/%s", user, password, dbname)
+	connStr := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", user, password, dbhost, dbport, dbname)
 	fmt.Println(connStr)
 	db, err := sql.Open("mysql", connStr)
 	if err != nil {

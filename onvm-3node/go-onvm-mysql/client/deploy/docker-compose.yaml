@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  sample-cont:
+    image: go-app
+    container_name: go-client
+    restart: always
+    environment:
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: sample_db
+      DB_PORT: 3306
+      DB_HOST: ${DB_HOST}
